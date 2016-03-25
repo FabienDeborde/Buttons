@@ -1,0 +1,348 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+/*-----------------------------------*  $TOAST-GRID
+  An insane grid.
+  You'd be mad to use it.
+  Usage
+  =====
+  Assuming default values:
+  <div class="grid">
+    <div class="grid__col grid__col--1-of-2">
+      A half-width column.
+    </div>
+    <div class="grid__col grid__col--1-of-4 grid__col--pull-1-of-4">
+      A quarter, pulled left by its own width. You get this, right?
+    </div>
+  </div>
+  Customisation
+  =============
+  $toast-grid-namespace and $toast-grid-column-namespace
+  adjusts the class names for the grid. With
+  default values, grid wrappers have a class
+  of '.grid' and columns '.grid__col'.
+  $toast-col-groups(n) adjusts column divisions.
+  For example, $toast-col-groups(12) will produce
+  a 12-column grid. $col-groups(3,6,8)
+  will produce a 3-, 6-, and 8-column grid.
+  $toast-gutter-width is—you guessed it—the gutter
+  width. Accepts any unit.
+  That's it. Have fun.
+\*-----------------------------------*/
+.row {
+  list-style: none;
+  margin-left: -20px;
+}
+
+.col--2-of-2 {
+  width: 100%;
+}
+
+.col--1-of-2 {
+  width: 50%;
+}
+
+.col {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: -.25em;
+  min-height: 1px;
+  padding-left: 20px;
+  vertical-align: top;
+}
+
+@media (max-width: 700px) {
+  .col {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+}
+
+@media (max-width: 700px) and (min-width: 480px) {
+  .col[class*="col--m-"] {
+    display: inline-block;
+    margin-right: -.24em;
+  }
+  .col.col--m-1-of-2, .col.col--m-2-of-4 {
+    width: 50%;
+  }
+  .col.col--m-1-of-3 {
+    width: 33.33333%;
+  }
+  .col.col--m-2-of-3 {
+    width: 66.66667%;
+  }
+  .col.col--m-1-of-4 {
+    width: 25%;
+  }
+  .col.col--m-3-of-4 {
+    width: 75%;
+  }
+}
+
+@media (max-width: 480px) {
+  .col[class*="col--s-"] {
+    display: inline-block;
+    margin-right: -.24em;
+  }
+  .col.col--s-1-of-2, .col.col--s-2-of-4 {
+    width: 50%;
+  }
+  .col.col--s-1-of-3 {
+    width: 33.33333%;
+  }
+  .col.col--s-2-of-3 {
+    width: 66.66667%;
+  }
+  .col.col--s-1-of-4 {
+    width: 25%;
+  }
+  .col.col--s-3-of-4 {
+    width: 75%;
+  }
+}
+
+.col--centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col--d-first {
+  float: left;
+}
+
+.col--d-last {
+  float: right;
+}
+
+.row--no-gutter {
+  margin-left: 0;
+  width: 100%;
+}
+
+.row--no-gutter .col {
+  padding-left: 0;
+}
+
+.row--no-gutter .col--span-all {
+  margin-left: 0;
+  width: 100%;
+}
+
+.col--ab {
+  vertical-align: bottom;
+}
+
+.col--am {
+  vertical-align: middle;
+}
+
+body {
+  text-align: center;
+  padding: 50px 50px 0 50px;
+  font-family: Lato, sans-serif;
+}
+
+body .container {
+  width: 900px;
+  margin: auto;
+}
+
+body h1 {
+  font-weight: 400;
+  color: slategray;
+  margin-bottom: 75px;
+}
+
+body a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 75px 0;
+  width: 100px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  padding: 1em 2em;
+  letter-spacing: 0.1em;
+  transition: all 300ms;
+  border-radius: 5px;
+}
+
+body p {
+  margin-top: 50px;
+  font-weight: 300;
+  color: slategray;
+}
+
+body p .link_youtube {
+  color: slategray;
+  display: inline;
+  vertical-align: baseline;
+  margin: auto;
+  font-size: 1em;
+  padding: inherit;
+  letter-spacing: normal;
+  margin-bottom: 0;
+}
+
+.one {
+  background: MediumAquaMarine;
+}
+
+.one:hover {
+  box-shadow: 0px 0px 0px 2px white, 0px 0px 0px 4px MediumAquaMarine;
+}
+
+.two {
+  background: LightSkyBlue;
+  transform: translateZ(0);
+}
+
+.two:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: LightSkyBlue;
+  height: 2px;
+  transition-property: left, right;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
+}
+
+.two:hover {
+  background: white;
+  color: LightSkyBlue;
+}
+
+.two:hover:before, .two:focus:before, .two:active:before {
+  left: 0;
+  right: 0;
+}
+
+.three {
+  background-color: LightCoral;
+}
+
+.three:hover {
+  background-color: white;
+  color: LightCoral;
+  box-shadow: 0px 0px 0px 1px LightCoral, 0px 0px 2px 3px rgba(0, 0, 0, 0.1);
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.four {
+  background: DarkSeaGreen;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.four:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+.four:hover, .four:focus, .four:active {
+  transform: translateY(-5px);
+}
+
+.four:hover:before, .four:focus:before, .four:active:before {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.five {
+  background: DarkGoldenRod;
+  transform: translateZ(0);
+}
+
+.five:before {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  bottom: 0;
+  right: 0;
+  background: DarkGoldenRod;
+  background: linear-gradient(315deg, white 45%, #aaaaaa 50%, #cccccc 56%, white 80%);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.3s;
+  transition-property: width, height;
+}
+
+.five:hover:before, .five:focus:before, .five:active:before {
+  width: 25px;
+  height: 25px;
+}
+
+.six {
+  background: orange;
+  position: relative;
+  transform: translateZ(0);
+  overflow: hidden;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+.six:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: red;
+  border-radius: 100%;
+  transform: scale(0);
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.six:hover, .six:focus, .six:active {
+  color: white;
+}
+
+.six:hover:before, .six:focus:before, .six:active:before {
+  transform: scale(2);
+}
+
+.seven {
+  background: DarkOliveGreen;
+  transition-property: background;
+  transition-duration: 0.2s;
+}
+
+.height {
+  background: LightSalmon;
+  transition-property: background;
+  transition-duration: 0.2s;
+}
+
+.hidden {
+  display: none;
+}
+
+.bg_ok {
+  background: DarkGreen;
+}
+
+.bg_error {
+  background: red;
+}
