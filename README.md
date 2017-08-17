@@ -1,5 +1,5 @@
 # Buttons
-##Messing with Buttons Style
+## Messing with Buttons Style
 
 I made this a while ago after watching some of [DevTips](https://www.youtube.com/user/DevTipsForDesigners) awesome videos.<br/>
 For this project I used the Toast-Grid along with my SASS stylesheet and of course Jade (now PUG).
